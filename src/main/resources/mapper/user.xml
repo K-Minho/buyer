@@ -12,8 +12,12 @@
       select * from user_tb where id = #{id}
    </select>
 
-   <insert id="insert"> <!--useGeneratedKey="id" 키값을 지정 지금은 값을 하나씩 넣기때문에 사용하지 않음-->
-      insert into user_tb(name, password, email, created_at) values(#{name}, #{password}, #{email}, now()) <!--세미콜론 붙이지 말것-->
+   <select id="findUserFindByIdAndPassword" resultType="shop.mtcoding.buyer.model.User">
+      select * from user_tb where id = #{id} and password = #{password}
+   </select>
+
+   <insert id="insert">
+      insert into user_tb(username, password, email, created_at) values(#{username}, #{password}, #{email}, now())
    </insert>
 
     <update id="updatePasswordFindById">

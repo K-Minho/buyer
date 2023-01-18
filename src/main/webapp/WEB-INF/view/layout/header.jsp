@@ -15,16 +15,23 @@
                 <li>
                     <a href="/">상품 목록</a>
                 </li>
-                <li>
-                    <a href="/loginForm">로그인</a> <!-- 인증에 관련된(수행하는) 페이지는 앞에 폴더이름을 안붙이는 규칙이 있음 (접속하기전에 필터링을 함)-->
-                </li>
-                <li>
-                    <a href="/joinForm">회원가입</a>
-                </li>
-                <li>
-                    <a href="/purchase">구매 목록보기</a> <!-- 로그인이 이미 완료되어야(인증된) 갈수있는 페이지는 상관없음 -->
-                </li>
-                <li>
-                    <a href="/logout">로그아웃</a>
-                </li>
+                <c:choose>
+                <c:when test="${principal == null}">
+                    <li>
+                        <a href="/loginForm">로그인</a>
+                    </li>
+                    <li>
+                        <a href="/joinForm">회원가입</a>
+                    </li>
+                </c:when>
+
+                <c:otherwise>
+                    <li>
+                        <a href="/purchase">구매 목록보기</a>
+                    </li>
+                    <li>
+                        <a href="/logout">로그아웃</a>
+                    </li>
+                </c:otherwise>
+                </c:choose>
             </ul>
