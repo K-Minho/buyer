@@ -15,11 +15,13 @@ public interface UserRepository { // CRUD를 사용하지 않더라도 만들어
 
     public User findById(int id);
 
-    public int updateFindById(int id);
+    // public int updateFindById(int id);
 
     public int deleteFindById(int id);
 
-    public int updateUserFindById(int id, String password, String email);
+    // public int updateUserFindById(int id, String password, String email);
+
+    public int updatePasswordFindById(int id, String password);
 
     public User login(String username, String password);
 
