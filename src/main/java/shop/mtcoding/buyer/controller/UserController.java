@@ -41,7 +41,7 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public String login(String username, String password) {
-        User user = userRepository.findUserFindByIdAndPassword(username, password);
+        User user = userRepository.findUserFindByUsernameAndPassword(username, password);
         if (user == null) {
             return "redirect:/loginForm";
         } else {

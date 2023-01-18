@@ -24,6 +24,11 @@
          where id = #{id}
     </update>
 
+    <update id="updateQtyByOrder">
+          update product_tb
+          set qty = #{qty} - #{orderqty}
+         where id = #{id}
+    </update>
 
    <delete id="deleteFindById">
       delete from product_tb where id = #{id}

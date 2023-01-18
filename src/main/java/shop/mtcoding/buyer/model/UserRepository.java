@@ -17,7 +17,8 @@ public interface UserRepository { // CRUD를 사용하지 않더라도 만들어
 
     public User findById(int id);
 
-    public User findUserFindByIdAndPassword(@Param("username") String username, @Param("password") String password);
+    public User findUserFindByUsernameAndPassword(@Param("username") String username,
+            @Param("password") String password);
 
     // public int updateFindById(int id);
 
